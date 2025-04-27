@@ -1,0 +1,23 @@
+{
+  "name": "nodegolib",
+  "version": "1.0.0",
+  "description": "node with golang binary ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/chixm/nodegolib"
+  },
+  "keywords": [
+    "node",
+    "go",
+    "lib"
+  ],
+  "author": "chixm",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
