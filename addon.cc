@@ -17,6 +17,12 @@ Napi::String LoadDLL(const Napi::CallbackInfo& info) {
   FuncType dllFunction = reinterpret_cast<FuncType>(pFunc);
   const char* result = dllFunction("addon.cc");
 
+  // Free the DLL after use
+  if (hDLL) {
+    FreeLibrary(hDLL);
+    hDLL = NULL;
+  }
+  
   return Napi::String::New(env, result);
 }
 
