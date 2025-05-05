@@ -4,7 +4,8 @@
   "description": "node with golang binary ",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "cd include && go build -o goshared.dll -buildmode=c-shared"
   },
   "repository": {
     "type": "git",

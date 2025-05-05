@@ -4,8 +4,10 @@ node library for golang based dll
 # npm launch when accessed private
 npm publish --access=private
 
-## References
+# Expecting Use in Windows Only
+this nodegolib package is targeted on Windows Application(ex. Electron).
 
+## References
 https://github.com/nodejs/node-addon-examples/tree/main/src/1-getting-started/1_hello_world/node-addon-api
 
 
@@ -31,3 +33,8 @@ To Create dll, run command below in lib directry
 ```
  go build -buildmode=c-shared -o goshared.dll
 ```
+instead, you can use
+```
+npm run build
+```
+for golang dll build
