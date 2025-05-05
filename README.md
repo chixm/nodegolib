@@ -11,7 +11,10 @@ https://github.com/nodejs/node-addon-examples/tree/main/src/1-getting-started/1_
 
 # Prepare
 Requires 
-- Python
+- Python 
+-- 3.10
+- Go
+-- 1.23.4
 
 install node-gyp
 ```
@@ -22,4 +25,9 @@ npm install global node-gyp
 
 ```
 npm install .
+```
+
+To Create dll, run command below in lib directry
+```
+ go build -buildmode=c-shared -o goshared.dll
 ```

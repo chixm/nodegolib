@@ -1,2 +1,4 @@
 node_modules/*
 build/**
+lib/goshared.h
+.vscode/c_cpp_properties.json
