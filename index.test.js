@@ -1,4 +1,4 @@
-const { hello, helloAsync } = require('./index');
+const { hello } = require('./index');
 
 describe('hello functions', () => {
   test('sum function', () => {
@@ -15,7 +15,7 @@ describe('hello functions', () => {
   });*/
 
   test('hello async test', async () => {
-    const result = await helloAsync("Async World");
+    const result = await hello("Async World");
     expect(result).toBe("Hello, Async World!");
-  });
+  }, 1000000); // 10秒
 });

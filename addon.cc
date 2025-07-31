@@ -2,6 +2,17 @@
 #include <windows.h>
 #include <string>
 
+// グローバルでDLLハンドルを保持
+HMODULE g_hDLL = nullptr;
+
+void EnsureDLLLoaded()
+{
+  if (!g_hDLL)
+  {
+    g_hDLL = LoadLibraryA("include/goshared.dll");
+  }
+}
+
 // AsyncWorker to handle the asynchronous execution of the DLL function
 class ExecutePromiseWorker : public Napi::AsyncWorker
 {
@@ -11,17 +22,11 @@ public:
 
   void Execute() override
   {
-    HMODULE hDLL = LoadLibraryA("include/goshared.dll");
-    if (!hDLL)
-    {
-      error_ = "Failed to load DLL";
-      return;
-    }
-    FARPROC pFunc = GetProcAddress(hDLL, "ExecuteAsync");
+    EnsureDLLLoaded();
+    FARPROC pFunc = GetProcAddress(g_hDLL, "ExecuteAsync");
     if (!pFunc)
     {
       error_ = "Failed to find function in DLL";
-      FreeLibrary(hDLL);
       return;
     }
     typedef const char *(*FuncType)(const char *);
@@ -35,7 +40,6 @@ public:
     {
       error_ = "DLL function returned null";
     }
-    FreeLibrary(hDLL);
   }
 
   void OnOK() override

@@ -16,4 +16,14 @@ function helloAsync(name) {
   });
 }
 
-module.exports = { helloAsync };
+async function hello(name) {
+  try {
+    const result = await addon.executeAsyncPromise(name);
+    return `${result}`;
+  } catch (error) {
+    console.error("Error in hello function:", error);
+    throw error;
+  }
+}
+
+module.exports = { hello };
