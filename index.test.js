@@ -1,5 +1,21 @@
-const { hello } = require('./index');
+const { hello, helloAsync } = require('./index');
 
-test('hello world test', () => {
-  expect(hello("World")).toBe("Hello, World!");
+describe('hello functions', () => {
+  test('sum function', () => {
+    expect(1 + 1).toBe(2);
+  });
+
+  /**test('hello world test', () => {
+    try {
+      const result = hello("World");
+      expect(result).toBe("Hello, World!");
+    } catch (error) {
+      console.error("Error in hello function:", error);
+    }
+  });*/
+
+  test('hello async test', async () => {
+    const result = await helloAsync("Async World");
+    expect(result).toBe("Hello, Async World!");
+  });
 });

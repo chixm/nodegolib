@@ -1,7 +1,10 @@
 package main
 
 import "C"
-import "log"
+import (
+	"log"
+	"time"
+)
 
 func main() {
 	// This is a placeholder for the main function.
@@ -15,4 +18,12 @@ func Execute(input *C.char) *C.char {
 	// This function is a placeholder for the actual implementation.
 	// It should contain the logic that needs to be executed when called from C.
 	return C.CString("Hello " + goInput + ` from Go!` + "\n")
+}
+
+//export ExecuteAsync
+func ExecuteAsync(input *C.char) *C.char {
+	goInput := C.GoString(input)
+	time.Sleep(2 * time.Second) // Simulate some asynchronous work
+	log.Println("Executing asynchronously with input:", goInput)
+	return C.CString("Hello " + goInput + ` from Go Async!` + "\n")
 }
