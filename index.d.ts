@@ -1,0 +1,1 @@
+export function helloAsync(name: string): Promise<string>;
