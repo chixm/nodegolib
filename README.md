@@ -23,6 +23,14 @@ install node-gyp
 npm install global node-gyp
 ```
 
+## VSCode Extensions
+
+Jest
+
+Python
+
+Go
+
 # Build 
 
 ```
