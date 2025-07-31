@@ -1,13 +1,19 @@
 
-const addon = require('bindings')('hello');
+const addon = require('bindings')('addon');
 
-console.log(addon.hello("World")); // Should print "Hello, World!"
+console.log("Addon loaded successfully");
 
-function hello(name) {
-  // Call the C++ function from the addon
-  const result = addon.hello(name);
-  return `${result}!`;
+console.log(addon);
+
+function helloAsync(name) {
+  return new Promise((resolve, reject) => {
+    addon.executeAsyncPromise(name, (err, result) => {
+      if (err) {
+        return reject(err);
+      }
+      resolve(`${result}!`);
+    });
+  });
 }
-  
-module.exports = { hello };
-  
+
+module.exports = { helloAsync };

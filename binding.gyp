@@ -1,7 +1,7 @@
 {
   "targets": [
     {
-      "target_name": "hello",
+      "target_name": "addon",
       "cflags!": [ "-fno-exceptions" ],
       "cflags_cc!": [ "-fno-exceptions" ],
       "sources": [ "addon.cc" ],
