@@ -35,6 +35,7 @@ public:
     if (res)
     {
       result_ = res;
+      free((void *)res);
     }
     else
     {

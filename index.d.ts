@@ -1,1 +1,1 @@
-export function helloAsync(name: string): Promise<string>;
+export function hello(name: string): Promise<string>;
