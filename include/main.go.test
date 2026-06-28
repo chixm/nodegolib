@@ -18,3 +18,8 @@ func ExecuteAsync(input *C.char) *C.char {
 	log.Println("Executing asynchronously with input:", goInput)
 	return C.CString("Hello " + goInput + ` from Go Async!` + "\n")
 }
+
+//export Greet
+func Greet(name *C.char) *C.char {
+  return C.CString("Greet: " + C.GoString(name))
+}

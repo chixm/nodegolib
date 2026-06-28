@@ -74,7 +74,7 @@ typedef struct { void *data; GoInt len; GoInt cap; } GoSlice;
 extern "C" {
 #endif
 
-extern __declspec(dllexport) char* Execute(char* input);
+extern __declspec(dllexport) char* ExecuteAsync(char* input);
 
 #ifdef __cplusplus
 }

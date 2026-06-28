@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "build": "cd include && go build -o goshared.dll -buildmode=c-shared"
+    "generate": "node scripts/generate.js",
+    "build:dll": "cd include && go build -o goshared.dll -buildmode=c-shared",
+    "build:addon": "npx node-gyp rebuild",
+    "build": "npm run build:dll && npm run generate && npm run build:addon"
   },
   "repository": {
     "type": "git",
@@ -27,5 +30,10 @@
     "node": "^22.15.0",
     "node-addon-api": "^8.3.1",
     "node-gyp": "^11.2.0"
+  },
+  "jest": {
+    "silent": false,
+    "verbose": true,
+    "testEnvironment": "node"
   }
 }
