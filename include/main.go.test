@@ -1,0 +1,25 @@
+package main
+
+import "C"
+import (
+	"log"
+	"time"
+)
+
+func main() {
+	// This is a placeholder for the main function.
+	// The actual implementation will depend on the specific requirements of the application.
+}
+
+//export ExecuteAsync
+func ExecuteAsync(input *C.char) *C.char {
+	goInput := C.GoString(input)
+	time.Sleep(2 * time.Second) // Simulate some asynchronous work
+	log.Println("Executing asynchronously with input:", goInput)
+	return C.CString("Hello " + goInput + ` from Go Async!` + "\n")
+}
+
+//export Greet
+func Greet(name *C.char) *C.char {
+  return C.CString("Greet: " + C.GoString(name))
+}

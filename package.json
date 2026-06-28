@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "build": "cd include && go build -o goshared.dll -buildmode=c-shared"
+    "generate": "node scripts/generate.js",
+    "build:dll": "cd include && go build -o goshared.dll -buildmode=c-shared",
+    "build:addon": "npx node-gyp rebuild",
+    "build": "npm run build:dll && npm run generate && npm run build:addon"
   },
   "repository": {
     "type": "git",
