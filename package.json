@@ -29,7 +29,7 @@
     "global": "^4.4.0",
     "node": "^22.15.0",
     "node-addon-api": "^8.3.1",
-    "node-gyp": "^11.2.0"
+    "node-gyp": "^13.0.2"
   },
   "jest": {
     "silent": false,
